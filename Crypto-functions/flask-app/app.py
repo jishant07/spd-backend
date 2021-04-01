@@ -14,6 +14,12 @@ client = boto3.client('s3',aws_access_key_id='AKIAILPSC5UXRNDE5SZA',aws_secret_a
 bucket = resource.Bucket('pdf-save-repo')
 summary = bucket.objects.all()
 
+
+@app.route("/",methods=["GET"])
+def test():
+    return "Hello From the App"
+
+    
 @app.route("/encode", methods=['POST'])
 def encode():
     cover_image = request.form['cover_image']
